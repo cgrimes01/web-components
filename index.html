@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Web Component Test</title>
+        <script>
+            class WibbleElement extends HTMLElement {
+                constructor() {
+                    super();
+                    
+                    const shadow = this.attachShadow({mode: 'open'});
+                    const style = document.createElement('style');
+                    const wrapper = document.createElement('H1');
+
+                    wrapper.textContent = 'WIBBLE';
+                    shadow.appendChild(style);
+                    shadow.appendChild(wrapper);
+
+                    console.log('Constructed!');
+                }
+
+                updateStyle() {
+                    const shadow = this.shadowRoot;
+                    shadow.querySelector('style').textContent = `
+                        h1 {
+                            color: ${this.getAttribute('h1Color')};
+                        }
+                    `;
+                }
+
+                connectedCallback() {
+                    this.updateStyle();
+                    console.log('Wibble added to the DOM!');
+                }
+
+                static get observedAttributes() {
+                    return ['h1color'];
+                }
+                attributeChangedCallback(name, oldValue, newValue) {
+                    this.updateStyle();
+                    console.log('Wibble Changed - ', name, 'From:', oldValue, 'To:', newValue);
+                }
+
+                disconnectedCallback() {
+                    console.log('Wibble removed from the DOM!');
+                }
+            }
+            window.customElements.define('wibble-element', WibbleElement);
+        </script>
+    </head>
+
+    <body>
+        <script>
+            let $we = document.createElement('wibble-element');
+            $we.setAttribute('h1color', 'red');
+
+            const addToDom = () => {
+                document.body.appendChild($we);
+                setTimeout(() => {
+                    updateTestAttribute();
+                }, 2000);
+            }
+
+            const updateTestAttribute = () => {
+                $we.setAttribute('h1color', 'green');
+                setTimeout(() => {
+                    removeFromDom();
+                }, 2000);
+            }
+
+            const removeFromDom = () => {
+                $we.remove();
+            }
+
+            setTimeout(() => {
+                addToDom();
+            }, 2000);
+        </script>
+    </body>
+</html>
