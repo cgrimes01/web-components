@@ -1,0 +1,29 @@
+{
+  "name": "web-component-star",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/wc-star-rating.js",
+  "scripts": {
+    "build": "babel src -d build"
+  },
+  "type": "module",
+  "module": "build/wc-star-rating.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgrimes01/web-components.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgrimes01/web-components/issues"
+  },
+  "homepage": "https://github.com/cgrimes01/web-components#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7"
+  },
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.4.2"
+  }
+}
