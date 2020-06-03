@@ -6,7 +6,6 @@
   "scripts": {
     "build": "babel src -d build"
   },
-  "type": "module",
   "module": "build/wc-star-rating.js",
   "repository": {
     "type": "git",

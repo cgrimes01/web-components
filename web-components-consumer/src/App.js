@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <wc-star-rating></wc-star-rating>
+      <whats-that-father></whats-that-father>
     </div>
   );
 }

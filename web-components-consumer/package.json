@@ -9,7 +9,8 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
-    "web-component-star": "file:../native-web-component"
+    "web-component-star": "file:../native-web-component",
+    "web-component-whatsthatfather": "file:../ng-web-component"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'web-component-star';
+import 'web-component-whatsthatfather';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
